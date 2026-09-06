@@ -5,93 +5,91 @@ This document is the durable preflight, migration, and research-integration ledg
 ## Status vocabulary
 
 - **PRE-FLIGHT** — candidate identified; exact source verification is incomplete.
-- **HOLD** — active implementation/research work makes the source checkpoint intentionally unstable.
-- **ATTRIBUTION REVIEW** — source may otherwise be stable, but reachable history contains attribution metadata requiring an explicit preservation decision before migration.
-- **READY FOR IMPORT** — exact source head, no conflicting PR, source-appropriate verification, attribution review, hygiene, and umbrella verification contract are all defined and clean.
-- **IMPORTED / VERIFIED** — source history is preserved in umbrella ancestry, source tree equals imported subtree at the selected SHA, and source-equivalent umbrella verification is green.
+- **HOLD** — active implementation/research work makes the intended source checkpoint unstable.
+- **ATTRIBUTION REVIEW** — source may otherwise be stable, but reachable history contains provenance requiring an explicit preservation decision.
+- **READY FOR IMPORT** — exact source head, zero conflicting implementation PRs, source-appropriate verification, attribution review, hygiene, and umbrella verification contract are clean.
+- **IMPORTED / VERIFIED** — source history is preserved in umbrella ancestry, source tree equals imported subtree, and source-equivalent umbrella verification is green.
 - **INTEGRATION VERIFIED** — an executable cross-project research contract is permanently tested in addition to import verification.
 
 ## Phase 0 live preflight — 2026-09-07
 
-### `tiny-transformer-autograd`
+### `tiny-transformer-autograd` — HOLD
 
 Observed source main: `a011903671efb97db0f73b50e081f4d45f5eab11`.
 
-Status: **HOLD**.
+Multiple active research/integration lanes remain, including PR #172 (GQA/MQA), #177 (persistent KV-cache/beam), #178 (gradient centralization), and #179 (deterministic beam tie-breaking). Historical green CI does not authorize a freeze around active research history. No umbrella import is attempted.
 
-The source still has multiple active research/integration lanes. Current examples include PR #172 (GQA/MQA integration), #177 (persistent KV-cache/beam stack), #178 (gradient centralization), and #179 (deterministic beam tie-breaking), in addition to other research helpers. Historical green CI on the common main base is not a license to freeze around active work. Re-evaluate source topology after the canonical integration lanes close or are explicitly superseded.
+### `Quality_Assurance` — READY FOR IMPORT
 
-No umbrella import is performed at this checkpoint.
+Selected source candidate: `fb507f911de661dfc37c4c3136ca22e1c8ebb8c9`.
+Source tree: `6aeca34f2690a11b47d60d840976ce37368bc2f6`.
 
-### `Quality_Assurance`
+#### Exact source verification
 
-Observed source main: `fb507f911de661dfc37c4c3136ca22e1c8ebb8c9`.
-
-- zero open PRs observed at Phase 0 preflight;
+- zero open PRs at the live preflight;
 - exact-main Tests run `34045251168`: **success**;
-- recent source history includes empirical-study closure and subsequent static-analysis work;
-- at least one reachable commit (`565193e82903b6892ae2aed483f330b40bda2278`) contains `Co-authored-by: QuantPilot Developer <quantpilot@example.com>`.
+- Python 3.10 and 3.14 jobs install the package, byte-compile sources, execute the research artifact and Year-2 controlled evaluation, reproduce the documented deterministic summary/quality/traceability values, run the unit suite, and validate retained Year-2B evidence offline;
+- Python 3.12 static job passes Ruff and mypy;
+- Python 3.12 packaging job builds wheel + sdist, installs the wheel into a clean environment, and executes the installed research entrypoints.
 
-Status: **ATTRIBUTION REVIEW**.
+#### Reachable-history attribution decision
 
-This metadata is not silently deleted or rewritten. Before migration, run a complete reachable-history scan, classify every configured attribution hit, record the preservation policy, and only then choose a freeze point. Scientific results and frozen-study boundaries remain historical evidence and are not rewritten by consolidation.
+The canonical commit list reachable from the exact source head fits in the first 100-entry commits API page and page 2 is empty. Configured commit-message searches produced:
 
-### `iqa-soa`
+- `Co-authored-by`: exactly **one** hit, commit `565193e82903b6892ae2aed483f330b40bda2278`, trailer `Co-authored-by: QuantPilot Developer <quantpilot@example.com>`;
+- `Generated-By`: 0;
+- `Assisted-By`: 0;
+- `Signed-off-by`: 0;
+- `Claude`: 0;
+- `Anthropic`: 0;
+- `OpenAI`: 0.
 
-Observed source main: `802019b23f3e34396de10d2c1aeddf0456834640`.
+Policy: preserve the QuantPilot Developer co-author trailer as genuine historical provenance. Do not rewrite or remove it during migration. A migration-time full Git-history audit must re-check the exact same conclusion before the source is admitted.
 
-- zero open PRs observed at Phase 0 preflight;
-- no GitHub Actions run exists for the exact observed head;
-- current source documentation explicitly records a Route-A manuscript/evidence hardening state while successor qualification/effectiveness work remains HOLD.
+#### Scientific-record preservation
 
-Status: **PRE-FLIGHT**.
+The attributed commit records the completed Year-3B retained study. Its own canonical message explicitly freezes the result boundary: 60/60 cells and 600/600 occasions matched their pre-specified four-way status pair, while the compromised-attestor signed-replay observation is a declared trust-model boundary. The record explicitly says these observations are not a detection rate, perfect-security claim, fresh-inference proof, or generalization beyond the frozen scenarios/targets.
 
-Before this source can become READY, define a source-equivalent verification contract for the current repository. The umbrella must not convert manuscript/evidence HOLD wording into a confirmatory effectiveness claim.
+Umbrella consolidation must preserve those frozen inputs, retained-evidence semantics, and claim boundaries unchanged. READY status does not authorize rerunning or relabelling the study.
+
+### `iqa-soa` — PRE-FLIGHT / VERIFICATION ACTIVE
+
+Observed source main before verification PR: `802019b23f3e34396de10d2c1aeddf0456834640`.
+
+The source previously had no exact-head Actions run. Source PR #49 (`5f02fe94e445412749a425d8a0dfa4c53c614dfe`) now adds a read-only verification workflow only:
+
+- strict mypy on Python 3.11;
+- full committed pytest suite on Python 3.11;
+- full committed pytest suite on Python 3.13.
+
+The PR changes no implementation, frozen evidence, or scientific status. Do not promote `iqa-soa` to READY until the exact PR head and then exact merged source `main` pass this contract. Existing source documentation's successor-study/effectiveness HOLD boundaries remain authoritative.
 
 ## Attribution rule
 
-Search results are first-pass evidence only. Every migration requires a complete reachable-history scan over the exact fetched source history. Configured markers include at least:
+Search/API results are preflight evidence. Every actual migration still requires a complete reachable-history scan over the exact fetched source Git history. Configured markers include `Co-Authored-By`, `Generated-By`, `Assisted-By`, `Signed-off-by`, Claude, Anthropic, OpenAI, and any additional AI/bot attribution discovered during review.
 
-```text
-Co-Authored-By
-Generated-By
-Assisted-By
-Signed-off-by
-Claude
-Anthropic
-OpenAI
-other AI/bot attribution markers identified during review
-```
-
-Matches are classified and preserved or explicitly rejected according to provenance policy. Genuine source history is not falsified to produce a cleaner portfolio graph. New umbrella commits do not add these attribution trailers.
+Matches are classified and preserved according to provenance policy. Genuine source history is not falsified to produce a cleaner portfolio graph. New umbrella commits do not add attribution trailers.
 
 ## History-preserving migration procedure
 
 For each READY source:
 
 1. recheck exact source `main`, open PRs, recent commits and required CI immediately before migration;
-2. freeze source SHA and source tree SHA;
-3. perform a non-squashed history-preserving import under `projects/<name>`;
-4. prove the frozen source SHA remains reachable from umbrella history;
-5. prove source root tree equals the imported subtree tree at that freeze point;
-6. run the source-equivalent verification contract from the umbrella path;
-7. remove temporary write-capable bootstrap machinery before publishing the migration PR;
-8. normal-merge only after exact candidate verification;
-9. rerun permanent verification on exact merged `main`.
+2. freeze source SHA and tree SHA;
+3. run the complete source-history provenance/hygiene audit;
+4. perform a non-squashed import under `projects/<name>`;
+5. prove the frozen source SHA remains umbrella ancestry;
+6. prove source root tree equals imported subtree tree;
+7. run source-equivalent verification from the umbrella path;
+8. remove temporary write-capable bootstrap machinery before publishing the migration PR;
+9. normal-merge only after exact candidate verification;
+10. rerun permanent verification on exact merged `main`.
 
-A ZIP copy, archive copy, current-tree-only commit, or squash migration does not satisfy this protocol.
+A ZIP/archive/current-tree copy or squash migration does not satisfy this protocol.
 
 ## Research integration evidence rule
 
-Import verification and research integration are separate claims. A verified research edge must define:
-
-- the named participants and exact imported source SHAs;
-- a concrete artifact/workload/evidence schema shared across participants;
-- a pre-specified hypothesis or acceptance rule;
-- deterministic setup where applicable;
-- executable failure semantics;
-- explicit limitations and scientific claim boundary;
-- exact PR-head and merged-main evidence.
+Import verification and research integration are separate claims. A verified edge must define named participants and exact source SHAs, a concrete shared artifact/workload/evidence schema, a pre-specified hypothesis or acceptance rule, executable failure semantics, explicit limitations, and exact PR-head plus merged-main evidence.
 
 A deterministic MWE may establish implementation consistency or evidence plumbing. It does not establish production effectiveness, generalization, statistical superiority, or a real-world effect unless a separately designed empirical study supports that claim.
 
