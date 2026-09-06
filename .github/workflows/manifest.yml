@@ -1,0 +1,28 @@
+name: AI research umbrella manifest
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/manifest.json'
+      - 'scripts/validate_manifest.py'
+      - '.github/workflows/manifest.yml'
+  pull_request:
+    paths:
+      - 'projects/manifest.json'
+      - 'scripts/validate_manifest.py'
+      - '.github/workflows/manifest.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout umbrella
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate migration ledger
+        run: python scripts/validate_manifest.py
