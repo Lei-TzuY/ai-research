@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "umbrella": "Lei-TzuY/ai-research",
+  "generated_from_preflight_date": "2026-09-07",
+  "projects": [
+    {
+      "name": "tiny-transformer-autograd",
+      "source_repository": "Lei-TzuY/tiny-transformer-autograd",
+      "target_path": "projects/tiny-transformer-autograd",
+      "layer": "mechanism-numerical-ground-truth",
+      "status": "hold",
+      "observed_main_sha": "a011903671efb97db0f73b50e081f4d45f5eab11",
+      "active_pr_numbers": [172, 177, 178, 179],
+      "blocker": "Multiple active research/integration lanes still own the intended source checkpoint, including GQA/MQA, persistent KV-cache, gradient centralization, and deterministic beam tie-breaking. Do not freeze main while these research histories remain unresolved.",
+      "source_ci_notes": "The observed main commit has successful test evidence, but a stable source checkpoint cannot be selected solely from historical green CI while implementation PRs remain active.",
+      "integration_notes": "Mechanism outputs may later feed a bounded QA evidence contract, but no cross-project research interoperability is claimed at Phase 0."
+    },
+    {
+      "name": "Quality_Assurance",
+      "source_repository": "Lei-TzuY/Quality_Assurance",
+      "target_path": "projects/Quality_Assurance",
+      "layer": "validation-trustworthiness-evidence",
+      "status": "attribution-review",
+      "observed_main_sha": "fb507f911de661dfc37c4c3136ca22e1c8ebb8c9",
+      "source_ci_run_id": 34045251168,
+      "source_ci_conclusion": "success",
+      "blocker": "Reachable source history contains attribution metadata that requires an explicit preserve/review decision before history-preserving migration; do not rewrite the historical record to make the umbrella look cleaner.",
+      "observed_attribution_evidence": [
+        "commit 565193e82903b6892ae2aed483f330b40bda2278 contains Co-authored-by: QuantPilot Developer <quantpilot@example.com>"
+      ],
+      "integration_notes": "This layer owns machine-readable quality constraints, evidence models, deterministic checks, and empirical-study boundaries. Import does not by itself validate any mechanism or runtime target."
+    },
+    {
+      "name": "iqa-soa",
+      "source_repository": "Lei-TzuY/iqa-soa",
+      "target_path": "projects/iqa-soa",
+      "layer": "runtime-governance-auditable-evaluation",
+      "status": "pre-flight",
+      "observed_main_sha": "802019b23f3e34396de10d2c1aeddf0456834640",
+      "blocker": "Zero open PRs were observed, but no GitHub Actions run exists for the exact current head. Define and execute a source-equivalent verification contract before marking the source ready for import.",
+      "source_ci_run_id": null,
+      "source_ci_conclusion": null,
+      "integration_notes": "Current source documentation explicitly preserves HOLD boundaries around successor empirical work; umbrella migration must not broaden those scientific claims."
+    }
+  ]
+}
