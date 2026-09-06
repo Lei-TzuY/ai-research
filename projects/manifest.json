@@ -20,14 +20,22 @@
       "source_repository": "Lei-TzuY/Quality_Assurance",
       "target_path": "projects/Quality_Assurance",
       "layer": "validation-trustworthiness-evidence",
-      "status": "attribution-review",
+      "status": "ready-for-import",
       "observed_main_sha": "fb507f911de661dfc37c4c3136ca22e1c8ebb8c9",
+      "source_tree_sha": "6aeca34f2690a11b47d60d840976ce37368bc2f6",
       "source_ci_run_id": 34045251168,
       "source_ci_conclusion": "success",
-      "blocker": "Reachable source history contains attribution metadata that requires an explicit preserve/review decision before history-preserving migration; do not rewrite the historical record to make the umbrella look cleaner.",
+      "blocker": null,
+      "source_equivalent_ci": [
+        "Python 3.10 and 3.14: install package, byte-compile, run qa_mwe and Year-2 controlled evaluation, reproduce documented numbers, run unittest suite, validate committed Year-2B evidence offline",
+        "Python 3.12: ruff check . and mypy",
+        "Python 3.12: build wheel + sdist, install wheel in a clean environment, execute qa-mwe and qa-year2 entrypoints"
+      ],
       "observed_attribution_evidence": [
         "commit 565193e82903b6892ae2aed483f330b40bda2278 contains Co-authored-by: QuantPilot Developer <quantpilot@example.com>"
       ],
+      "provenance_notes": "The canonical commit list reachable from the exact source head fits in one 100-entry GitHub commits API page and page 2 is empty. Configured searches find exactly one Co-authored-by hit, the QuantPilot Developer trailer on 565193e82903b6892ae2aed483f330b40bda2278, and zero Generated-By, Assisted-By, Signed-off-by, Claude, Anthropic, or OpenAI hits. Preserve that historical co-author trailer; do not rewrite it during migration.",
+      "research_evidence_notes": "The co-authored commit records the completed Year-3B retained study and explicitly freezes its claim boundary: 600/600 exact status-pair matches are not a detection rate, perfect-security claim, or generalization result. Migration must preserve that scientific record and its frozen evidence semantics unchanged.",
       "integration_notes": "This layer owns machine-readable quality constraints, evidence models, deterministic checks, and empirical-study boundaries. Import does not by itself validate any mechanism or runtime target."
     },
     {
@@ -37,9 +45,11 @@
       "layer": "runtime-governance-auditable-evaluation",
       "status": "pre-flight",
       "observed_main_sha": "802019b23f3e34396de10d2c1aeddf0456834640",
-      "blocker": "Zero open PRs were observed, but no GitHub Actions run exists for the exact current head. Define and execute a source-equivalent verification contract before marking the source ready for import.",
+      "blocker": "Source verification PR #49 is active to establish an exact-head read-only CI contract. Do not mark the source ready until that PR and the exact merged main pass strict mypy plus the committed full pytest suite.",
       "source_ci_run_id": null,
       "source_ci_conclusion": null,
+      "verification_pr_number": 49,
+      "verification_pr_head_sha": "5f02fe94e445412749a425d8a0dfa4c53c614dfe",
       "integration_notes": "Current source documentation explicitly preserves HOLD boundaries around successor empirical work; umbrella migration must not broaden those scientific claims."
     }
   ]
