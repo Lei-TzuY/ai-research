@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "umbrella": "Lei-TzuY/ai-research",
-  "generated_from_preflight_date": "2026-09-07",
+  "generated_from_preflight_date": "2026-09-09",
   "projects": [
     {
       "name": "tiny-transformer-autograd",
@@ -10,8 +10,9 @@
       "layer": "mechanism-numerical-ground-truth",
       "status": "hold",
       "observed_main_sha": "a011903671efb97db0f73b50e081f4d45f5eab11",
+      "active_pr_count": 81,
       "active_pr_numbers": [172, 177, 178, 179],
-      "blocker": "Multiple active research/integration lanes still own the intended source checkpoint, including GQA/MQA, persistent KV-cache, gradient centralization, and deterministic beam tie-breaking. Do not freeze main while these research histories remain unresolved.",
+      "blocker": "81 open research/integration PRs still own the intended source checkpoint. Representative lanes include GQA/MQA, persistent KV-cache, gradient centralization, and deterministic beam tie-breaking. Do not freeze main while these research histories remain unresolved.",
       "source_ci_notes": "The observed main commit has successful test evidence, but a stable source checkpoint cannot be selected solely from historical green CI while implementation PRs remain active.",
       "integration_notes": "Mechanism outputs may later feed a bounded QA evidence contract, but no cross-project research interoperability is claimed at Phase 0."
     },
@@ -21,11 +22,12 @@
       "target_path": "projects/Quality_Assurance",
       "layer": "validation-trustworthiness-evidence",
       "status": "ready-for-import",
-      "observed_main_sha": "fb507f911de661dfc37c4c3136ca22e1c8ebb8c9",
-      "source_tree_sha": "6aeca34f2690a11b47d60d840976ce37368bc2f6",
-      "source_ci_run_id": 34045251168,
+      "observed_main_sha": "273fe2b912e4a3e33874ae58f623878aec32978e",
+      "source_tree_sha": "fab5550b2f694195cf1a0b6feb704003b94e63d7",
+      "source_ci_run_id": 34332582230,
       "source_ci_conclusion": "success",
       "blocker": null,
+      "migration_transport_blocker": "Private-source Git history transfer requires a scoped cross-repository credential with Contents: read access to Quality_Assurance; current connector writes cannot link Git objects across repository object databases.",
       "source_equivalent_ci": [
         "Python 3.10 and 3.14: install package, byte-compile, run qa_mwe and Year-2 controlled evaluation, reproduce documented numbers, run unittest suite, validate committed Year-2B evidence offline",
         "Python 3.12: ruff check . and mypy",
@@ -34,7 +36,7 @@
       "observed_attribution_evidence": [
         "commit 565193e82903b6892ae2aed483f330b40bda2278 contains Co-authored-by: QuantPilot Developer <quantpilot@example.com>"
       ],
-      "provenance_notes": "The canonical commit list reachable from the exact source head fits in one 100-entry GitHub commits API page and page 2 is empty. Configured searches find exactly one Co-authored-by hit, the QuantPilot Developer trailer on 565193e82903b6892ae2aed483f330b40bda2278, and zero Generated-By, Assisted-By, Signed-off-by, Claude, Anthropic, or OpenAI hits. Preserve that historical co-author trailer; do not rewrite it during migration.",
+      "provenance_notes": "All 95 canonical commits reachable from the exact source head fit in one 100-entry GitHub commits API page and page 2 is empty. Configured searches find exactly one Co-authored-by hit, the QuantPilot Developer trailer on 565193e82903b6892ae2aed483f330b40bda2278, and zero Generated-By, Assisted-By, Signed-off-by, Claude, Anthropic, or OpenAI hits. Preserve that historical co-author trailer; do not rewrite it during migration.",
       "research_evidence_notes": "The co-authored commit records the completed Year-3B retained study and explicitly freezes its claim boundary: 600/600 exact status-pair matches are not a detection rate, perfect-security claim, or generalization result. Migration must preserve that scientific record and its frozen evidence semantics unchanged.",
       "integration_notes": "This layer owns machine-readable quality constraints, evidence models, deterministic checks, and empirical-study boundaries. Import does not by itself validate any mechanism or runtime target."
     },
@@ -45,11 +47,12 @@
       "layer": "runtime-governance-auditable-evaluation",
       "status": "pre-flight",
       "observed_main_sha": "802019b23f3e34396de10d2c1aeddf0456834640",
-      "blocker": "Source verification PR #49 is active to establish an exact-head read-only CI contract. Do not mark the source ready until that PR and the exact merged main pass strict mypy plus the committed full pytest suite.",
-      "source_ci_run_id": null,
-      "source_ci_conclusion": null,
+      "blocker": "Source verification PR #49 exact-head run 34065177947 is red: strict mypy passes, but Python 3.11 and 3.13 each report 186 failed, 3143 passed, and 423 errors. Do not merge or mark ready until the committed suite has a defined current-state contract and both PR-head and merged-main verification pass.",
+      "source_ci_run_id": 34065177947,
+      "source_ci_conclusion": "failure",
       "verification_pr_number": 49,
       "verification_pr_head_sha": "5f02fe94e445412749a425d8a0dfa4c53c614dfe",
+      "migration_transport_blocker": "After source verification is repaired, private-source Git history transfer will require a scoped cross-repository credential with Contents: read access to iqa-soa.",
       "integration_notes": "Current source documentation explicitly preserves HOLD boundaries around successor empirical work; umbrella migration must not broaden those scientific claims."
     }
   ]

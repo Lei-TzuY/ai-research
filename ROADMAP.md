@@ -7,15 +7,15 @@
 - [x] establish research-validity and provenance invariants;
 - [x] create a machine-checked migration ledger and read-only validator;
 - [x] recheck live source heads/open PRs/CI before assigning source status;
-- [x] resolve `Quality_Assurance` attribution review and promote its exact source checkpoint to READY FOR IMPORT;
-- [ ] finish `iqa-soa` source verification PR #49 and require exact merged-main CI before READY;
+- [x] refresh `Quality_Assurance` after its Year 2E closeout and promote exact source `273fe2b...` to READY FOR IMPORT;
+- [ ] repair `iqa-soa` source verification PR #49, then require exact PR-head and merged-main CI before READY;
 - [ ] keep `tiny-transformer-autograd` on HOLD until its active research lanes settle.
 
 Current live preflight:
 
-- `tiny-transformer-autograd@a011903671efb97db0f73b50e081f4d45f5eab11` — **HOLD** while multiple research/integration PRs remain active, including GQA/MQA, KV-cache, gradient-centralization and deterministic beam-tie tracks;
-- `Quality_Assurance@fb507f911de661dfc37c4c3136ca22e1c8ebb8c9` — **READY FOR IMPORT**; exact-main Tests `34045251168` is green across Python 3.10/3.14 behavioral/evidence checks, Python 3.12 Ruff/mypy, and wheel/sdist verification; one historical QuantPilot co-author trailer is explicitly preserved, all other configured attribution markers are zero;
-- `iqa-soa@802019b23f3e34396de10d2c1aeddf0456834640` — **PRE-FLIGHT / VERIFICATION ACTIVE**; source PR #49 adds read-only exact-head CI with strict mypy plus full pytest on Python 3.11/3.13 without changing scientific status.
+- `tiny-transformer-autograd@a011903671efb97db0f73b50e081f4d45f5eab11` — **HOLD** with 81 open PRs; representative active lanes include #172, #177, #178 and #179;
+- `Quality_Assurance@273fe2b912e4a3e33874ae58f623878aec32978e` — **READY FOR IMPORT**; exact-main Tests `34332582230` is green across Python 3.10/3.14 behavioral/evidence checks, Python 3.12 Ruff/mypy, and wheel/sdist verification; the complete 95-commit audit preserves one historical QuantPilot co-author trailer and finds no other configured attribution marker;
+- `iqa-soa@802019b23f3e34396de10d2c1aeddf0456834640` — **PRE-FLIGHT / CI RED**; PR #49 head `5f02fe9...` passes strict mypy, but both full pytest jobs report 186 failed, 3143 passed and 423 errors.
 
 ## Phase 1 — Stable source freeze points
 
@@ -29,13 +29,15 @@ For each source:
 
 ### `Quality_Assurance` freeze candidate
 
-- [x] exact source `fb507f911de661dfc37c4c3136ca22e1c8ebb8c9`, tree `6aeca34f2690a11b47d60d840976ce37368bc2f6`;
+- [x] exact source `273fe2b912e4a3e33874ae58f623878aec32978e`, tree `fab5550b2f694195cf1a0b6feb704003b94e63d7`;
 - [x] zero open PRs at preflight;
-- [x] exact-main Tests run `34045251168` success, all four jobs green;
-- [x] canonical commit list exhausted at API page 1; page 2 empty;
+- [x] exact-main Tests run `34332582230` success, all four jobs green;
+- [x] all 95 canonical commits exhausted at API page 1; page 2 empty;
 - [x] exactly one `Co-authored-by` hit: QuantPilot Developer on `565193e...`; preserve it;
 - [x] Generated-By / Assisted-By / Signed-off-by / Claude / Anthropic / OpenAI: zero;
 - [x] preserve the frozen Year-3B study claim boundary and evidence semantics unchanged.
+
+Source readiness is complete, but history transfer is blocked until `ai-research` has a scoped cross-repository Contents: read credential for the private source. Do not replace ancestry-preserving import with a ZIP or current-tree copy.
 
 ## Phase 2 — History-preserving migration
 
