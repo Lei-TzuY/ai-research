@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "umbrella": "Lei-TzuY/ai-research",
-  "generated_from_preflight_date": "2026-09-09",
+  "generated_from_preflight_date": "2026-09-11",
   "projects": [
     {
       "name": "tiny-transformer-autograd",
@@ -14,30 +14,29 @@
       "active_pr_numbers": [172, 177, 178, 179],
       "blocker": "81 open research/integration PRs still own the intended source checkpoint. Representative lanes include GQA/MQA, persistent KV-cache, gradient centralization, and deterministic beam tie-breaking. Do not freeze main while these research histories remain unresolved.",
       "source_ci_notes": "The observed main commit has successful test evidence, but a stable source checkpoint cannot be selected solely from historical green CI while implementation PRs remain active.",
-      "integration_notes": "Mechanism outputs may later feed a bounded QA evidence contract, but no cross-project research interoperability is claimed at Phase 0."
+      "integration_notes": "Mechanism outputs may later feed a bounded QA evidence contract, but no cross-project research interoperability is claimed before a stable history-preserved import exists."
     },
     {
       "name": "Quality_Assurance",
       "source_repository": "Lei-TzuY/Quality_Assurance",
       "target_path": "projects/Quality_Assurance",
       "layer": "validation-trustworthiness-evidence",
-      "status": "ready-for-import",
-      "observed_main_sha": "273fe2b912e4a3e33874ae58f623878aec32978e",
-      "source_tree_sha": "fab5550b2f694195cf1a0b6feb704003b94e63d7",
-      "source_ci_run_id": 34332582230,
-      "source_ci_conclusion": "success",
-      "blocker": null,
+      "status": "pre-flight",
+      "observed_main_sha": "312cdc907275848860fb86dfb0f3d6e314c0bb18",
+      "blocker": "The previous import-ready freeze at 273fe2b912e4a3e33874ae58f623878aec32978e was superseded by merged Year 2F-1 and Year 2F-2 work. PR #34 exact head 37e59c77c3e49ac77c60311dfe8979e84a3322a5 passed both Tests run 34546487697 and ICST artifact run 34546487654, with zero open PRs observed, but the new exact main still requires a complete reachable-history attribution/hygiene audit, tree freeze, and exact merged-main CI record before READY.",
+      "previous_ready_candidate": {
+        "source_sha": "273fe2b912e4a3e33874ae58f623878aec32978e",
+        "source_tree_sha": "fab5550b2f694195cf1a0b6feb704003b94e63d7",
+        "reachable_commit_count": 95,
+        "source_ci_run_id": 34332582230,
+        "preserved_attribution": "Co-authored-by: QuantPilot Developer <quantpilot@example.com> on 565193e82903b6892ae2aed483f330b40bda2278"
+      },
+      "source_pr_number": 34,
+      "source_pr_head_sha": "37e59c77c3e49ac77c60311dfe8979e84a3322a5",
+      "source_pr_ci_run_ids": [34546487654, 34546487697],
+      "source_pr_ci_conclusion": "success",
       "migration_transport_blocker": "Private-source Git history transfer requires a scoped cross-repository credential with Contents: read access to Quality_Assurance; current connector writes cannot link Git objects across repository object databases.",
-      "source_equivalent_ci": [
-        "Python 3.10 and 3.14: install package, byte-compile, run qa_mwe and Year-2 controlled evaluation, reproduce documented numbers, run unittest suite, validate committed Year-2B evidence offline",
-        "Python 3.12: ruff check . and mypy",
-        "Python 3.12: build wheel + sdist, install wheel in a clean environment, execute qa-mwe and qa-year2 entrypoints"
-      ],
-      "observed_attribution_evidence": [
-        "commit 565193e82903b6892ae2aed483f330b40bda2278 contains Co-authored-by: QuantPilot Developer <quantpilot@example.com>"
-      ],
-      "provenance_notes": "All 95 canonical commits reachable from the exact source head fit in one 100-entry GitHub commits API page and page 2 is empty. Configured searches find exactly one Co-authored-by hit, the QuantPilot Developer trailer on 565193e82903b6892ae2aed483f330b40bda2278, and zero Generated-By, Assisted-By, Signed-off-by, Claude, Anthropic, or OpenAI hits. Preserve that historical co-author trailer; do not rewrite it during migration.",
-      "research_evidence_notes": "The co-authored commit records the completed Year-3B retained study and explicitly freezes its claim boundary: 600/600 exact status-pair matches are not a detection rate, perfect-security claim, or generalization result. Migration must preserve that scientific record and its frozen evidence semantics unchanged.",
+      "research_evidence_notes": "The prior frozen studies and their bounded claims remain historical records. Year 2F-2 establishes only bounded structural reachability under its declared model; it does not establish runtime reachability, vulnerability detection, exploitability, precision/recall, or industrial effectiveness.",
       "integration_notes": "This layer owns machine-readable quality constraints, evidence models, deterministic checks, and empirical-study boundaries. Import does not by itself validate any mechanism or runtime target."
     },
     {
@@ -46,14 +45,31 @@
       "target_path": "projects/iqa-soa",
       "layer": "runtime-governance-auditable-evaluation",
       "status": "pre-flight",
-      "observed_main_sha": "802019b23f3e34396de10d2c1aeddf0456834640",
-      "blocker": "Source verification PR #49 exact-head run 34065177947 is red: strict mypy passes, but Python 3.11 and 3.13 each report 186 failed, 3143 passed, and 423 errors. Do not merge or mark ready until the committed suite has a defined current-state contract and both PR-head and merged-main verification pass.",
-      "source_ci_run_id": 34065177947,
-      "source_ci_conclusion": "failure",
+      "observed_main_sha": "07c92ed5add3058b06be0b86263782923689b886",
+      "blocker": "Source verification PR #49 was repaired and merged. Its exact head 0519177d0a4331007dbad80f4e2814b19b504089 passed CI run 34541093055, but the exact merged main CI identity plus the complete reachable-history attribution/hygiene and tree-freeze records must still be captured before READY.",
+      "source_ci_run_id": 34541093055,
+      "source_ci_conclusion": "success",
       "verification_pr_number": 49,
-      "verification_pr_head_sha": "5f02fe94e445412749a425d8a0dfa4c53c614dfe",
-      "migration_transport_blocker": "After source verification is repaired, private-source Git history transfer will require a scoped cross-repository credential with Contents: read access to iqa-soa.",
-      "integration_notes": "Current source documentation explicitly preserves HOLD boundaries around successor empirical work; umbrella migration must not broaden those scientific claims."
+      "verification_pr_head_sha": "0519177d0a4331007dbad80f4e2814b19b504089",
+      "migration_transport_blocker": "After source preflight is complete, private-source Git history transfer requires a scoped cross-repository credential with Contents: read access to iqa-soa.",
+      "research_evidence_notes": "The frozen successor verdict remains HOLD: confirmatory eligibility is false and no confirmatory dataset exists. Current evidence supports bounded mechanism and governance-lifecycle properties, not a QA treatment effect.",
+      "integration_notes": "A future edge may consume a versioned Quality_Assurance evidence envelope through fail-closed QA-XML/runtime governance, without broadening the frozen empirical HOLD boundary."
+    },
+    {
+      "name": "SE-and-AGI",
+      "source_repository": "Lei-TzuY/SE-and-AGI",
+      "target_path": "projects/SE-and-AGI",
+      "layer": "software-engineering-lifecycle-traceability",
+      "status": "pre-flight",
+      "observed_main_sha": "b797b8d57ae65cfd2a33f3e1aee25f2285df7b07",
+      "blocker": "Newly admitted core candidate. PR #2 exact head 3c8ab7718c6a7ff673f91cd56b8b90723807037a passed tests run 33312614630 and merged with zero open PRs currently observed, but the exact main tree, merged-main CI identity, complete reachable-history attribution/hygiene review, license state, and source-equivalent umbrella contract are not yet frozen.",
+      "source_ci_run_id": 33312614630,
+      "source_ci_conclusion": "success",
+      "source_pr_number": 2,
+      "source_pr_head_sha": "3c8ab7718c6a7ff673f91cd56b8b90723807037a",
+      "migration_transport_blocker": "Private-source Git history transfer requires a scoped cross-repository credential with Contents: read access to SE-and-AGI.",
+      "research_evidence_notes": "The current evidence supports executable lifecycle traceability and the controlled Mentcare evolution scenario. It does not establish generalization, LLM-assisted testing superiority, mixed-policy effectiveness, or improved software quality.",
+      "integration_notes": "This cross-cutting layer may later bind requirements, design, implementation, tests and evidence references from another imported research project; no such cross-project edge is currently claimed."
     }
   ]
 }
