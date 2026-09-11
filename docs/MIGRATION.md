@@ -11,7 +11,16 @@ This document is the durable preflight, migration, and research-integration ledg
 - **IMPORTED / VERIFIED** — source history is preserved in umbrella ancestry, source tree equals imported subtree, and source-equivalent umbrella verification is green.
 - **INTEGRATION VERIFIED** — an executable cross-project research contract is permanently tested in addition to import verification.
 
-## Phase 0 live preflight — 2026-09-09
+## Current live preflight — 2026-09-11
+
+- `tiny-transformer-autograd@a011903671efb97db0f73b50e081f4d45f5eab11`: **HOLD**, still 81 open PRs.
+- `Quality_Assurance@312cdc907275848860fb86dfb0f3d6e314c0bb18`: **PRE-FLIGHT REFRESH**. The former READY checkpoint `273fe2b...` was superseded by Year 2F-1/2. PR #34 head `37e59c7...` passed Tests `34546487697` and ICST artifact `34546487654`; the expanded exact-main history/tree/CI freeze remains required.
+- `iqa-soa@07c92ed5add3058b06be0b86263782923689b886`: **PRE-FLIGHT / PR CI GREEN**. PR #49 head `0519177...` passed CI `34541093055` and merged; exact merged-main CI identity plus full attribution/hygiene/tree freeze remain required. The frozen successor verdict remains HOLD and no confirmatory dataset exists.
+- `SE-and-AGI@b797b8d57ae65cfd2a33f3e1aee25f2285df7b07`: **PRE-FLIGHT**, newly admitted as the fourth core project. PR #2 head `3c8ab77...` passed tests `33312614630`; exact-main/provenance/hygiene/tree/license/source-equivalent-contract review remains required.
+
+The latter three repositories are private and still require a scoped cross-repository read credential for ancestry-preserving Git transport. Connector-level file access does not substitute for Git-object transfer.
+
+## Historical Phase 0 preflight — 2026-09-09
 
 ### `tiny-transformer-autograd` — HOLD
 
